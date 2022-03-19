@@ -1,0 +1,97 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'search_land.css'%}">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+</head>
+<body>
+    
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+        <div class="container">
+          <a class="navbar-brand" href="#">
+            <img src="https://placeholder.pics/svg/150x50/888888/EEE/Logo" alt="..." height="36" width="70">
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto">
+              
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'login'%}">SIGN IN</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'regis' %}">SIGN UP</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'viewjob_land'%}">FIND JOBS</a>
+              </li>
+                
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+  <form class="filter-form" style="display: flex;align-items: center;margin-left: 50;justify-content: center;" action="{% url 'filter_land' %}" method="post">
+    {% csrf_token %}
+        <div class="jt" style="color: whitesmoke;">
+          job_type:
+        </div>
+        <div class="dropdown">
+          <select name="job-type" id="job-type">
+            <option value="ceramic">CERAMIC</option>
+            <option value="textile">TEXTILE</option>
+            <option value="casting">CASTING</option>
+            <option value="other">OTHER</option>
+          </select>
+       </div>
+        <div class="amt" style="color: whitesmoke;">
+          Amount:<input type="number" name="amnt"/> 
+        </div>
+        <div class="product-price-btn1">
+         
+          <button type="submit" id="bt1" >APPLY</button>
+          </a>
+        </div>
+  </form>
+       
+{% for i in total_jobs %}
+  <div class="wrapper">
+    <div class="product-img">
+      <img src='/images/{{i.job_image}}' height="420" width="327">
+    </div>
+    <div class="product-info">
+      <div class="product-text">
+        <h1> {{i.job_title}}</h1>
+        <h2>{{i.job_company}}</h2>
+        <h3>{{i.user}}</h3>
+        <p>{{i.job_description}}</p>
+      </div>
+      <div class="product-price-btn">
+        <div class="amnt">
+          <p>{{i.job_amount}}₹</p>
+        </div>
+      </br>
+        <a href="/regis"><button type="button">view details</button></a>
+      </div>
+    </div>
+  </div>
+ {% endfor %}
+ <!-- <script>
+  var title = {{job_title}};
+  $('a_tag_id').attr('href','http://www.google.com&jobid='+id);
+  </script> -->
+<!-- JavaScript Bundle with Popper -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+
+</html> -->
+
+</body>
+</html>

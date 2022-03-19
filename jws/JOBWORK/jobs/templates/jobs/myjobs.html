@@ -1,0 +1,32 @@
+{% extends 'jobs/base.html' %}
+{% load static %}
+
+{% block title%}my-jobs{%endblock%}
+{%block css %}<link rel="stylesheet" href="{% static 'history.css' %}"/>{%endblock%}
+{% block body%}
+<div class="profile">
+    <table class="table table-striped table-hover table-dark table-borderless">
+      <h3>MY UPLOADED JOBS</h3>
+        <thead>
+          <tr>
+            <th scope="col">job-id</th>
+            <th scope="col">job-title</th>
+            <th scope="col">job-duration</th>
+            <th scope="col">amount</th>
+            <th scope="col">action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for i in total_jobs %}
+          <tr>
+            <th scope="row">{{i.id}}</th>
+            <td>{{i.job_title}}</td>
+            <td>{{i.job_duration}}</td>
+            <td>{{i.job_amount}}</td>
+            <td><a href="{% url 'dltjob' i.id %}"><button class="btn btn-outline-danger">delete</button></a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+</div>
+{%endblock%}

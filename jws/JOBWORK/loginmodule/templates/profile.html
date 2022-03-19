@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css%}<link rel="stylesheet" href="{% static 'profile.css' %}">{%endblock%}
+{% block title%}profile{%endblock%}
+{% block body%}
+    <br>
+        
+
+        <div class="loginBox"> <img class="user" src="https://i.ibb.co/yVGxFPR/2.png" height="100px" width="100px">
+            <h3>PROFILE</h3>
+            <div class="content">
+            
+                 {% csrf_token %}
+
+                 <p style="color:rgb(235, 235, 235)">
+                 COMPANY NAME:-{{cname}}<br>
+                 OWNER NAME:-{{oname}}<br>
+                 GST NO:-{{gst}}<br>
+                 ABOUT:-{{bio}}<br>
+                 ADDRESS:-{{add}}<br>
+                 CONT NUM:-{{contact}}<br>
+                 EMAI{{email}}<br>
+                 {{editt}}<br>
+                </p>
+                <div class="button">
+                    <a href="{% url 'profileedit1' %}">
+                <input type="submit" name="" value="EDIT">
+                    </a>
+                </div>
+        
+    </p>
+{%endblock%}

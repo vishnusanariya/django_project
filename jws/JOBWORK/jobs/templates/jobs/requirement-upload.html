@@ -1,0 +1,86 @@
+{% extends 'jobs/base.html'%}
+{%load static%}
+{%block title%}job-upload{%endblock%}
+{%block css%}<link rel="stylesheet" href="{% static 'requirement-upload.css' %}"/>{%endblock%}
+{%block body%}
+    <div class="profile">
+        <div class="user" style="text-align:center;" style="font-size:30px;" id="userid"><h1>-:  {{username}}  :-</h1></div>
+        <br>
+        <div class="heading" ><h3>UPLOAD YOUR REQUIREMENT HERE</h3>
+        </div>
+        </br>
+        </br>
+        </br>
+        <form action="jobUpload" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form.as_p}}
+            
+        <div class="job-type-dropdown" >
+           
+            Industry type:
+            
+            <div class="dropdown">
+               <select name="job-type" id="job-type">
+                 <option value="ceramic">CERAMIC</option>
+                 <option value="textile">TEXTILE</option>
+                 <option value="casting">CASTING</option>
+                 <option value="other">OTHER</option>
+               </select>
+            </div>
+        </div>
+        </br>
+        <div class="job-title">
+        job title:
+        <input type="text" class="text-success" id="job-title" name="job-title" placeholder="eg.100 set of tiles/saris/valves">
+        </div>
+        </br>
+        <div class="job-des">
+            Description:<textarea class="bg-transparent mt-2 text-success" name="job-description"></textarea>
+        </div>
+        </br>
+
+        <div class="amount">
+            Amount:<input type="number" name="amount" class="text-success" placeholder="INR only">
+        </div>
+        <br>
+        <div class="timelimit">
+            Duration :<input type="text" class="text-success" placeholder="e.g.1-month"name="deadline" id="timelimit">
+        </div>
+        <br>
+        <div class="job-image">
+          Upload Image or pdf of job:<input type="file" name="job-image" id="job image">
+        </div>
+    </br>
+</p>
+        <div class="btnOperation">
+            <div class="BUT1">  
+                <div class="product-price-btn">
+                 
+                  <button type="submit" id="bt1" >UPLOAD</button>
+                  </a>
+                </div>
+              </div>
+            
+              <div class="BUT1">  
+                <div class="product-price-btn">
+                  
+                  <button type="button" id="bt3" >Cancel</button>
+                  </a>
+                </div>
+              </div>
+           
+        </div>
+    </form>
+    </div>
+
+
+    
+    <script type="text/javascript">
+
+    function getOption() {
+        selectElement = document.querySelector('#dropdownMenulink');
+        output = selectElement.options[selectElement.selectedIndex].value;
+        document.querySelector('.output').textContent = output;
+    }
+    </script>
+{%endblock%}

@@ -1,0 +1,195 @@
+body {
+    font-family: 'Mochiy+pop', Mochiy+pop;
+    margin: 0px;
+    padding: 0px;
+    background: url('image/regis.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: black;
+}
+
+@media screen and (max-width: 600px) {
+    body {
+        background-size: cover;
+        position: fixed;
+    }
+}
+
+/* ================================================================================ */
+/* header css start */
+header {
+    margin: 0px auto;
+    height: 80px;
+    background-color: rgb(173, 216, 142);
+}
+
+.left {
+    position: absolute;
+    top: 33px;
+    left: 8px;
+    display: inline-block;
+    /* border: 2px solid black; */
+}
+
+.left img {
+    width: 70px;
+}
+
+
+.center {
+    display: block;
+    font-family: monospace;
+    font-size: 30px;
+    padding: 20px 26px;
+    width: 25%;
+    height: 70px;
+    top: 25px;
+    margin: 30px auto;
+    /* border: 2px solid yellowgreen; */
+}
+
+.right {
+    position: absolute;
+    top: 47px;
+    right: 8px;
+    display: inline-block;
+    /* border: 2px solid wheat; */
+}
+
+#logout {
+    text-decoration-color: whitesmoke;
+}
+
+.button {
+    margin: 0px 9px;
+    background-color: black;
+    padding: 4px 14px;
+    border: 2px solid gray;
+    cursor: pointer;
+    color: wheat;
+    border-radius: 10px;
+}
+
+.button:hover {
+    color: yellowgreen;
+    font-size: 20px;
+}
+
+/* header css ends */
+/* ========================================================================== */
+
+#userid {
+    position: absolute;
+    display: block;
+    width: 75px;
+    margin: 5px 1250px;
+    /* border-color: rgb(8, 238, 8); */
+    border-radius: 10px;
+    padding: 5px 9px;
+}
+
+.profile-picture {
+    width: 200px;
+}
+
+.profile-picture img {
+    margin-left: 10px;
+    width: 150px;
+    height: 150px;
+}
+
+.about1 {
+    display: block;
+    margin: -145px 243px;
+    position: absolute;
+    color: whitesmoke;
+}
+
+.about1 input[type="text"],
+.about1 input[type="number"] {
+    border: none;
+    border-bottom: 2px solid #262626;
+    outline: none;
+    height: 40px;
+    color: #fff;
+    background: transparent;
+    font-size: 16px;
+    padding-left: 20px;
+    box-sizing: border-box
+}
+
+#floatingTextarea1 {
+    width: 500px;
+    background: transparent;
+}
+
+#floatingTextarea2 {
+    width: 500px;
+    background: transparent;
+}
+
+.about2 {
+    display: block;
+    margin: 93px 25px;
+    position: absolute;
+    color: whitesmoke;
+}
+
+.about2 input[type="email"],
+.about2 input[type="password"],
+.about2 input[type="number"] {
+    border: none;
+    border-bottom: 2px solid #262626;
+    outline: none;
+    height: 40px;
+    color: #fff;
+    background: transparent;
+    font-size: 16px;
+    padding-left: 20px;
+    box-sizing: border-box
+}
+
+.profile {
+    position: absolute;
+    margin-top: 160px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    height: 700px;
+    min-height: 200px;
+    background: #000000;
+    border-radius: 10px;
+    padding: 40px;
+    box-sizing: border-box;
+}
+.profile input[type="text"]:hover,
+.profile input[type="number"]:hover,
+.profile input[type="email"]:hover,
+.profile input[type="password"]:hover {
+    color: #00ffff;
+    border: 1px solid #00ffff;
+    box-shadow: 0 0 5px rgba(0, 255, 0, .3), 0 0 10px rgba(0, 255, 0, .2), 0 0 15px rgba(0, 255, 0, .1), 0 2px 0 black
+}
+
+.profile input[type="email"]:focus,
+.profile input[type="password"]:focus {
+    border-bottom: 2px solid #00ffff
+}
+
+.btnOperation {
+    width: 100%;
+    float: left;
+    margin: 30px 60px;
+    /* border: solid 1px blue; */
+    text-align: center;
+}
+.btnOperation button{
+    display: inline-block;
+}
+#bt1{
+    float: left;
+}
+#bt3{
+    float:right ;
+}

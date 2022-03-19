@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title%}chat search{%endblock%}
+
+{% block body%}
+
+<div class="chatscreen">
+  <div class="heading">
+    Result found for search username:
+  </div>
+  {% for user in usernamelist %}
+    <div class="friend">
+      <img src="{% static 'image/user prof pic.png' %}"/>
+      <p>
+        <strong><a href="chat/{{runame}}-{{user.uname}}/?username={{user.uname}}">
+            {{user.uname}}
+         </a></strong>
+        </p>
+      </div>
+      {%endfor%}
+    </div>
+     <!-- <a href ="chat/{{username}}-{{room.friend}}/?username={{username}}">
+       {{room.friend}}</a> -->
+     
+
+
+<style>
+  .heading{
+    color:black;
+    font-size: 25px;
+  }
+  .friend{
+	height:70px;
+  width:330px;
+	border-bottom:1px solid #e7ebee;		
+	
+}
+.friend:hover{
+	background:#f1f4f6;
+	cursor:pointer;
+}
+.friend img{
+	width:40px;
+	border-radius:50%;
+	margin-left:15px;
+	margin-right:15px;  
+	margin-top:10px;  
+	float:left;
+}
+.friend p{
+	padding:15px 0 0 0;			
+	float:left;
+	width:220px;
+}
+.friend p strong{
+  font-weight:600;
+  font-size:15px;
+	color:#597a96;  
+
+}
+.friend p strong a{
+  font-weight:600;
+  font-size:15px;
+	color:black;
+  text-decoration: none;  
+
+}
+.chatscreen{
+  position: absolute;
+  top: 25%;
+  left: 35%;
+  width: 400px;
+  min-height: 500px;
+  background: grey;
+  border-radius: 10px;
+  padding: 40px;
+  box-sizing: border-box;
+  
+}
+</style>
+{%endblock%}
+   

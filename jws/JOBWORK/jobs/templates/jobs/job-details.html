@@ -1,0 +1,33 @@
+{% extends 'jobs/base.html'%}
+{%load static%}
+{%block title%}job-details{%endblock%}
+{%block css%}<link rel="stylesheet" href="{% static 'jobs/requirement-upload.css' %}"/>{%endblock%}
+{%block body%}
+   
+    {%for i in data%}
+    <div class="aa">
+    </br>
+    Title:{{i.job_title}}
+    </br>
+    Job Description:{{i.job_description}}
+    </br>
+    Uploaded by:{{i.user}}
+    </br>
+    Uploaded by company:{{i.job_company}}
+    </br>
+    Job Amount:{{i.job_amount}}
+    <img src="{{MEDIA_URL}}image/{{i.job_image}}" alt="">
+    </br>
+    <a href="{% url 'dealreq' i.id %}">
+        <input type="submit" value="DEAL" name="dealdone">
+    </a>
+    </div>
+    {% endfor %}
+    <style>
+        .aa{
+            color: #42d4ab;
+            font-size: 40px;
+            font-family: "Times New Roman";
+        }
+    </style>
+{%endblock%}

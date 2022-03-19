@@ -1,0 +1,120 @@
+body {
+    font-family: 'Mochiy+pop', Mochiy+pop;
+    margin: 0px;
+    padding: 0px;
+    background: url('image/land-1.jpg') no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: black;
+}
+.heading{
+    padding-left: 150px;
+}
+
+@media screen and (max-width: 600px) 
+{
+    body {
+        background-size: cover;
+        position: fixed;
+    }
+}
+
+/* ================================================================================ */
+/* header css start */
+
+
+
+
+.button {
+    margin: 0px 9px;
+    background-color: black;
+    padding: 4px 14px;
+    border: 2px solid gray;
+    cursor: pointer;
+    color: wheat;
+    border-radius: 10px;
+}
+
+.button:hover {
+    color: yellowgreen;
+    font-size: 20px;
+}
+
+/* header css ends */
+/* ========================================================================== */
+
+
+#userid p {
+    float: right;
+    text-decoration: #59238F;
+    font-size: 15px;
+    background: transparent;
+    border-color: whitesmoke;
+    width: 150px;
+    text-align: center;
+
+}
+
+
+
+.profile {
+    position: absolute;
+    margin-top: 120px;
+    text-align: center;
+    color: #59238F;
+    font-size: 20px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    height: 700px;
+    min-height: 200px;
+    background: #000000;
+    border-radius: 10px;
+    padding: 40px;
+    box-sizing: border-box;
+}
+.job-image{
+    padding-left: 100px;
+    padding-top: 10px;
+    width: 760px;
+}
+.job-type-dropdown{
+    display: inline-flex;
+    padding: 2px;
+}
+#job-title{
+    font-size: 15px;
+    color: black;
+}
+.profile input[type="text"],
+.profile input[type="number"]{
+    color:wheat;
+    font-size: 15px;
+    background: transparent;
+    
+}
+.profile input[type="text"]:hover,
+.profile input[type="number"]:hover,
+.profile input[type="email"]:hover,
+.profile input[type="password"]:hover {
+    color: #00ffff;
+    border: 1px solid #00ffff;
+    box-shadow: 0 0 5px rgba(0, 255, 0, .3), 0 0 10px rgba(0, 255, 0, .2), 0 0 15px rgba(0, 255, 0, .1), 0 2px 0 black
+}
+
+.profile input[type="email"]:focus,
+.profile input[type="password"]:focus {
+    border-bottom: 2px solid #00ffff
+}
+.btnOperation button{
+    display: inline-block;
+    width: 300px;
+}
+#bt1{
+    float: left;
+}
+#bt3{
+    float:right ;
+}

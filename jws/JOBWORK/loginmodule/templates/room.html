@@ -1,0 +1,243 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title%}chat screen{%endblock%}
+{%block css%}
+<script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+{%endblock%}
+{%block body%}
+<style>
+  /*body {
+  margin: 0 auto;
+  max-width: 100px;
+  padding: 0 20px;
+}*/
+/* .navbar>.container, .navbar>.container-fluid, .navbar>.container-lg, .navbar>.container-md, .navbar>.container-sm, .navbar>.container-xl, .navbar>.container-xxl {
+    display: flex;
+    flex-wrap: inherit;
+    max-width: none;
+    align-items: center;
+    justify-content: space-between;
+    margin:10px 130px;
+}
+.form-control {
+    display: block;
+    width: 50%;
+    height: 40px;
+    margin-top: 7px;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+} */
+.btn-outline-success {
+    color: #198754;
+    height: 40px;
+    margin-top: 7px;
+    border-color: #198754;
+}
+/* .form-control {
+    display: block;
+    width: 50%;
+    height: 50px;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.ms-auto {
+    margin-left: -182px;
+}
+.navbar{
+  width: auto;
+  padding-right: 0px;
+  margin-right: 0px;
+} */
+.aa {
+  margin: 0 auto;
+  max-width: 800px;
+  padding: 0 20px;
+  color: aqua;
+}
+
+.display>.container {
+  /* border: 2px solid #dedede; */
+  /* background-color: #f1f1f1; */
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+  color: greenyellow;
+}
+
+/* .darker {
+  border-color: #ccc;
+  background-color: #ddd;
+} */
+
+.display>.container::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* .container img {
+  float: left;
+  max-width: 60px;
+  width: 100%;
+  margin-right: 20px;
+  border-radius: 50%;
+}
+
+.container img.right {
+  float: right;
+  margin-left: 20px;
+  margin-right:0;
+  
+} */
+
+/* .time-right {
+  float: right;
+  color: #aaa;
+}*/
+.msg-right{
+  float: right;
+}
+.time-left {
+  color: #999;
+} 
+.navbar input[type=search]{
+  height: 40px;
+  margin-top: 8px;
+}
+#message{
+  margin-top: 20px;
+  margin-left: 10px;
+}
+
+</style>
+  
+
+  <div class="aa">
+<h2>{{room}} - ChatRoom</h2>
+
+<div id="display">
+
+<!-- <div class="container darker">
+  <b>Tom</b><p>Hello Everyone, How Are You Guys Doing?</p>
+  <span class="time-left">20th, April 2021</span>
+</div> -->
+
+</div>
+
+<script>
+$(document).ready(function(){
+
+setInterval(function(){
+    $.ajax({
+        type: 'GET',
+        url : "/chat/getMessages/{{room}}/",
+        success: function(response){
+            console.log(response);
+            $("#display").empty();
+            for (var key in response.messages)
+            {
+                var temp="<div class='container darker msg-right'><b>"+response.messages[key].user+"</b><p>"+response.messages[key].value+"</p><span class='time-left'>"+response.messages[key].date+"</span></div></br>";
+                $("#display").append(temp);
+            }
+        },
+        error: function(response){
+            alert('An error occured')
+        }
+    });
+},1000);
+})
+</script>
+
+
+<div class="cont">
+   <style>
+input[type=text], select {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    height: 40px;
+          display: inline-block;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          box-sizing: border-box;
+          }
+    
+          input[type=submit] {
+          width: 10%;
+          background-color: #4CAF50;
+          color: white;
+          padding: 9px 20px;
+          margin: 8px 0;
+          height: 40px;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+          }
+    
+          input[type=submit]:hover {
+          background-color: #45a049;
+          }
+    
+          /* div {
+          border-radius: 5px;
+          background-color: #f2f2f2;
+          padding: 20px;
+          } */
+          
+</style>
+    <form id="post-form">
+        {% csrf_token %}
+        <input type="hidden" name="username" id="username" value="{{username}}"/>
+        <input type="hidden" name="room_id" id="room_id" value="{{room_details.id}}"/>
+        <input type="text" name="message" id="message" width="100px" />
+        <input type="submit" value="Send">
+    </form>
+</div>
+
+</div>
+
+
+<script type="text/javascript">
+  $(document).on('submit','#post-form',function(e){
+    e.preventDefault();
+
+    $.ajax({
+      type:'POST',
+      url:'/chat/send',
+      data:{
+          username:$('#username').val(),
+          room_id:$('#room_id').val(),
+          message:$('#message').val(),
+        csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),
+      },
+      success: function(data){
+         //alert(data)
+      }
+    });
+    document.getElementById('message').value = ''
+  });
+</script>
+
+{%endblock%}

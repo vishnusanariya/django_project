@@ -1,0 +1,188 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: url('image/HOME-1.jpg') no-repeat;
+    height: 100vh;
+    font-family: sans-serif;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    overflow: hidden
+}
+
+@media screen and (max-width: 600px
+
+) {
+    body {
+        background-size:cover;
+        position: fixed;
+        
+    }
+}
+
+#particles-js {
+    height: 100%
+}
+
+.content form .inputBox{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px 0 12px 0;
+  }
+  form .inputBox .input-box{
+    margin-bottom: 15px;
+    width: calc(100% / 2 - 20px);
+  }
+  form .inputbox span.details{
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+  }
+
+  .inputBox .input-box input{
+    height: 45px;
+    width: 100%;
+    outline: none;
+    font-size: 16px;
+    border-radius: 5px;
+    padding-left: 15px;
+    border: 1px solid #ccc;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+  }
+
+  form .category{
+    display: flex;
+    width: 80%;
+    margin: 14px 0 ;
+    justify-content: space-between;
+  }
+
+  form .category label{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  form .category label .dot{
+   height: 18px;
+   width: 18px;
+   border-radius: 50%;
+   margin-right: 10px;
+   background: #d9d9d9;
+   border: 5px solid transparent;
+   transition: all 0.3s ease;
+ }
+
+ #dot-1:checked ~ .category label .one,
+ #dot-2:checked ~ .category label .two
+ {
+   background: #9b59b6;
+   border-color: #d9d9d9;
+ }
+ form input[type="radio"]{
+   display: none;
+ }
+
+ form .button{
+    height: 45px;
+    margin: 35px 0
+  }
+
+.loginBox {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    min-height: 200px;
+    background: #000000;
+    border-radius: 10px;
+    padding: 40px;
+    box-sizing: border-box
+}
+
+.user {
+    margin: 0 auto;
+    display: block;
+    margin-bottom: 20px
+}
+
+h3 {
+    margin: 0;
+    padding: 0 0 20px;
+    color: #59238F;
+    text-align: center
+}
+
+.loginBox input {
+    width: 50%;
+    margin-bottom: 20px
+}
+
+.loginBox input[type="text"],
+.loginBox input[type="password"]{
+    border: none;
+    border-bottom: 2px solid #262626;
+    outline: none;
+    height: 40px;
+    color: #fff;
+    background: transparent;
+    font-size: 16px;
+    padding-left: 20px;
+    box-sizing: border-box
+}
+
+.loginBox input[type="text"]:hover,
+.loginBox input[type="password"]:hover {
+    color: #00ffff;
+    border: 1px solid #00ffff;
+    box-shadow: 0 0 5px rgba(0, 255, 0, .3), 0 0 10px rgba(0, 255, 0, .2), 0 0 15px rgba(0, 255, 0, .1), 0 2px 0 black
+}
+
+.loginBox input[type="text"]:focus,
+.loginBox input[type="password"]:focus {
+    border-bottom: 2px solid #00ffff
+}
+
+.inputBox {
+    position: relative
+}
+
+.inputBox span {
+    position: absolute;
+    top: 10px;
+    color: #262626
+}
+
+.loginBox input[type="submit"] {
+    position: absolute;
+    top: 80%;
+    left: 43%;
+    border: none;
+    outline: none;
+    height: 40px;
+    width: 100px;
+    font-size: 16px;
+    background:#59238F;
+    color: #fff;
+    border-radius: 20px;
+    cursor: pointer
+}
+
+.loginBox a {
+    color: #262626;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    display: block
+}
+
+a:hover {
+    color: #00ffff
+}
+
+p {
+    color: #0000ff
+}
